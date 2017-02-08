@@ -49,7 +49,11 @@ public class CustomerService {
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             stmt = conn.createStatement();
             stmt.executeUpdate(createSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        try {
             stmt.executeUpdate("insert into customer values ('1', 'customer1', 'Jack', '13512345678', 'jack@gmail.com', null)");
             stmt.executeUpdate("insert into customer values ('2', 'customer2', 'Rose', '13612345678', 'rose@gmail.com', null)");
         } catch (SQLException e) {
